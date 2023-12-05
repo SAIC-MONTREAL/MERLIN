@@ -1,0 +1,3 @@
+cartpole:
+  _target_: gym.make
+  _args_: [CartPole-v1]

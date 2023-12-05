@@ -1,0 +1,11 @@
+defaults:
+  - sb3_base@sb3_a2c
+
+sb3_a2c:
+  policy_cls:
+    _target_: hydra.utils.get_class
+    path: stable_baselines3.a2c.MlpPolicy
+  agent_cls:
+    _target_: hydra.utils.get_class
+    path: stable_baselines3.A2C
+  agent_kwargs: {}

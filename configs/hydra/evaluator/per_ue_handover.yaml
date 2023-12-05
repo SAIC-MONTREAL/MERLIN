@@ -1,0 +1,8 @@
+per_ue_handover:
+  _target_: saic5g.evaluators.qsim_evaluator.PerUeHandoverEvaluator
+  n_trials: 1
+  start_seed: 0
+  incr_seed: 1
+  skip_vis: false
+  max_workers: 10
+  skip_rollouts: false

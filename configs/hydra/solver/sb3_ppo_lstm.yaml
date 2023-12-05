@@ -1,0 +1,13 @@
+defaults:
+  - sb3_ppo_base
+ 
+sb3_ppo:
+  agent_kwargs:
+    policy_kwargs:
+      feature_extractor: 
+          _target_: hydra.utils.get_class
+          path: saic5g.solvers.sb3_policy_networks.lstm_feature_extractor.CustomLSTM
+      feature_extractor_kwargs: 
+        features_dim: 128
+        num_layers: 2
+        bidirectional: 1

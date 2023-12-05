@@ -1,0 +1,40 @@
+qsim:
+  _target_: saic5g.envs.per_ue_base.PerUeHandover
+  scenario_generator: 
+    _target_: saic5g.scenarios.basic.scenario.ScenarioGenerator
+    radio_generator:
+      _target_: saic5g.scenarios.basic.scenario.BasicSubconfigGenerator
+      subconfig:
+        _target_: saic5g.scenarios.basic.radio.SectorRadio
+        sectors: 'DEFAULT_3_SECTOR'
+        bands: 'DEFAULT_4_BAND'
+        handover_drop_load: 0.15
+        n_prb: 6
+        i_mean: 6.0e-8
+        i_std: .6e-8
+        n_mean: 6.0e-8
+        n_std: .6e-8
+        dl_tx_power: 30
+    traffic_generator:
+      _target_: saic5g.scenarios.basic.scenario.BasicSubconfigGenerator
+      subconfig:
+        _target_: saic5g.scenarios.basic.traffic.ConstantTraffic
+    geom_generator:
+      _target_: saic5g.scenarios.basic.geom.RandomWalk
+      cell_pos:
+        _target_: saic5g.scenarios.cell_layout.hex7.hex7_cells
+        # TODO: base_dist_m is duplicated here across 2 function calls,
+        # should it be defined elsewhere?
+        base_dist_m: 2000.
+        base_height_m: 32
+        cells_per_site: 12 # 3 sectors * 4 bands
+      bounds:
+        _target_: saic5g.scenarios.cell_layout.hex7.hex7_bounds
+        base_dist_m: 2000
+      # n_ues: 400
+      n_ues: 4
+      std_displacement_m: 10.
+      ts_s: 1.
+      ue_height_m: 1.5
+  time_step_s: 1.
+  log_movies: False

@@ -1,0 +1,5 @@
+sacred:
+  url: 105.160.140.31:27017 # Where to find the mongodb server
+  db_name: sacred # mongodb database name
+  metric_regex: null # The metrics to show in Omniboard, If None, all the metrics in tensorboard will be passed to Omniboard
+  metric_poll_interval: 5 # How often in seconds to read tfevents and send them to Sacred

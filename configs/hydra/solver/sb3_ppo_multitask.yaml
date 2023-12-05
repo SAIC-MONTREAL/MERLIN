@@ -1,0 +1,6 @@
+defaults:
+  - sb3_ppo
+
+sb3_ppo:
+  _target_: saic5g.solvers.sb3.Sb3MultiTaskSolver
+  num_envs: 1

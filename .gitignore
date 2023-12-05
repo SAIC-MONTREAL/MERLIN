@@ -1,0 +1,33 @@
+# Generated pb files
+*.pb
+# Python bytecode
+*.pyc
+# a mac thing
+.DS_Store
+
+.vscode
+*.swp
+*.cs
+bin/**/*.json
+
+src/**/*.csv
+bin/**/*.csv
+*.xlsx
+*.ods
+*.png
+
+logs/*
+results/
+
+#pycharm output
+.idea*
+
+#ipython notebook
+.ipynb_checkpoints
+
+# Core dump files
+core.*
+
+# Sphinx
+docs/_build
+docs/source

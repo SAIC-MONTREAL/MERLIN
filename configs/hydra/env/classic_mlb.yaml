@@ -1,0 +1,23 @@
+defaults:
+  - qsim
+
+qsim:
+  _target_: saic5g.envs.classic_mlb.A3BasedMLB
+  hysteresis: 3
+  rew_type: 0
+  include_Tput: False
+  include_sinr: False
+  scenario_generator:
+    _target_: saic5g.scenarios.basic.scenario.ScenarioGenerator
+    radio_generator:
+      _target_: saic5g.scenarios.basic.scenario.BasicSubconfigGenerator
+      subconfig:
+        _target_: saic5g.scenarios.basic.radio.MultiBandCellularRadio
+        frequencies: [2300, 850]
+        resource_blocks: [100, 50]
+        tx_powers: [46,49]
+
+    geom_generator:
+      cell_pos:
+        cells_per_site: 2 # 1 sector * 2 bands
+      n_ues: 20

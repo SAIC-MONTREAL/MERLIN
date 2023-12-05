@@ -1,0 +1,19 @@
+defaults:
+  - _self_
+  - env: ???
+  - solver: ???
+  - logger: null
+
+train_dir: logs/train_logs/${now:%Y.%m.%d}/${now:%H%M%S} # where the solver will save logs
+env_log_dir: ${train_dir} # where the gym env can save logs
+# Other config componenents can reference this top-level verbosity parameter
+# Use 0 for minimal printing, 1 for info, 2 debugging
+verbosity: 0
+
+# See:
+# https://github.com/facebookresearch/hydra/issues/910
+# https://github.com/facebookresearch/hydra/issues/1651
+hydra:
+  run:
+    dir: ${train_dir}
+  output_subdir: hydra_cfg

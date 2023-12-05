@@ -1,0 +1,28 @@
+defaults:
+  - sb3_base@sb3_mhppo
+
+sb3_mhppo:
+  policy_cls:
+    _target_: hydra.utils.get_class
+    path: saic5g.solvers.multi_heads.mhppo.ResidualMultiHeadActorCriticPolicy
+  agent_cls:
+    _target_: hydra.utils.get_class
+    path: saic5g.solvers.multi_heads.mhppo.MultiHeadPPO
+  agent_kwargs:
+    policy_kwargs:
+      features_extractor_class: 
+        _target_: hydra.utils.get_class
+        path: saic5g.solvers.sb3_policy_networks.batchnorm_feature_extractor.BatchNormFeaturesExtractor
+      activation_fn: 
+        _target_: hydra.utils.get_class
+        path: torch.nn.ReLU
+      features_extractor_kwargs:
+        net_arch: [128,32,8]
+        normalize: False
+      net_arch:
+        -
+          vf: [256,256,256]
+          pi: [256,256,256]
+    learning_rate: 0.0003
+    clip_range: 0.15
+    gamma: 0.97

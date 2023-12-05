@@ -1,0 +1,15 @@
+defaults:
+  - sb3_ppo_base
+
+sb3_ppo:
+  agent_kwargs:
+    # n_steps: 24
+    activation_fn:  #ReLU, Tanh, LeakyReLU
+        _target_: hydra.utils.get_class
+        path: torch.nn.modules.activation.ReLU
+    batch_size: 64
+    learning_rate: 0.0003
+    clip_range: 0.15
+    gamma: 0.97
+    n_layers: 3
+    neurons_per_layer: 256

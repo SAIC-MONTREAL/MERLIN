@@ -1,0 +1,62 @@
+map_conf:
+  map_r: 3000
+  site_rad: 1500
+
+ue_conf:
+  ue_density: 1500
+  ue_max_velocity: 3
+
+traffic:
+  min_packet_n: 500
+  max_packet_n: 1500
+  
+bs:
+  n_sectors: 3
+  height: 15
+
+sector:
+  n_bands: 3
+  load_balancing: false
+  load_balancing_algo: 1
+  IMLB_enabled: 1
+  fairness_th: 0.95
+  
+band_configs:
+  band_mid1: {
+    "cf": 5.9,
+    "bw": 40,
+    "antenna_gx": 6,
+    "antenna_p": 19, 
+    "tx_mimo": 8,
+    "sc_spacing": 60,
+    "CCCV": 75
+  }
+  band_mid2: {
+    "cf": 4.2,
+    "bw": 25,
+    "antenna_gx": 6,
+    "antenna_p": 16, 
+    "tx_mimo": 16,
+    "sc_spacing": 30,
+    "CCCV": 50
+  }
+  band_mid3: {
+    "cf": 3.8,
+    "bw": 10,
+    "antenna_gx": 4,
+    "antenna_p": 16, 
+    "tx_mimo": 32,
+    "sc_spacing": 15,
+    "CCCV": 25
+  }
+  band_mmWave: {
+    "cf": 28,
+    "bw": 100,
+    "antenna_gx": 30,
+    "antenna_p": 25, 
+    "tx_mimo": 8,
+    "sc_spacing": 120,
+    "CCCV": 100
+  }
+
+  

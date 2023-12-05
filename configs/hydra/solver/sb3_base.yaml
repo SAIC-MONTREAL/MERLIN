@@ -1,0 +1,16 @@
+_target_: saic5g.solvers.sb3.Sb3Solver
+_convert_: all # Convert to python data structures. This is important for agent_kwargs
+params_from: null
+checkpoint: null
+log_dir: ${train_dir}
+num_envs: 1
+total_timesteps: 200000
+checkpoint_freq: 250
+eval_freq: 250
+n_eval_episodes: 1
+verbose: ${verbosity}
+# For policy_cls and agent_cls, we can instantiate a class
+# using hydra: https://github.com/facebookresearch/hydra/issues/1412
+policy_cls: ???
+agent_cls: ???
+agent_kwargs: ???

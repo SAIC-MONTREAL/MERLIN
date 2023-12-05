@@ -1,0 +1,6 @@
+mlb_evaluator:
+  _target_: saic5g.evaluators.classic_mlb.MlbEvaluator
+  n_trials: 1
+  start_seed: 0
+  incr_seed: 1
+  skip_vis: false

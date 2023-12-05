@@ -1,0 +1,17 @@
+defaults:
+  - sb3_base@sb3_ddpg
+
+sb3_ddpg:
+  _target_: saic5g.solvers.sb3.Sb3DDPGSolver
+  policy_cls:
+    _target_: hydra.utils.get_class
+    path: stable_baselines3.ddpg.MlpPolicy
+  agent_cls:
+    _target_: hydra.utils.get_class
+    path: stable_baselines3.DDPG
+  agent_kwargs:
+    train_freq:
+      # make_tuple is a helper function that allows us to specify tuples in the hydra config
+      _target_: saic5g.utils.hydra_utils.make_tuple
+      _args_: [1,episode]
+    batch_size: 100

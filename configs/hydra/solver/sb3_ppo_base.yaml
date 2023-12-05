@@ -1,0 +1,11 @@
+defaults:
+  - sb3_base@sb3_ppo
+
+sb3_ppo:
+  policy_cls:
+    _target_: hydra.utils.get_class
+    path: stable_baselines3.ppo.MlpPolicy
+  agent_cls:
+    _target_: hydra.utils.get_class
+    path: stable_baselines3.PPO
+  agent_kwargs: ???

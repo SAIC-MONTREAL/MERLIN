@@ -1,0 +1,2 @@
+qsim_default:
+  _target_: saic5g.solvers.baselines.qsim_baselines.NoLb
