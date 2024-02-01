@@ -112,13 +112,13 @@ class MetricThread(threading.Thread):
 
 
 def extract_env_solver_cfg(cfg):
-    '''
+    """
     Extract the part of hydra config pertaining to to the env and solver.
     Since we are trainig, we expect cfg['env'] and cfg['solver'] to both be
     of length 1. In other words, there should be exactly 1 env and one solver.
     Note that during evaluation, cfg['solver'] can have length
     greater than 1, which allows us to simultaneously evaluate multiple methods.
-    '''
+    """
     _, env_config = hydra_utils.get_one(cfg['env'], max_selection=1)
     _, solver_config = hydra_utils.get_one(cfg['solver'], max_selection=1)
     return env_config, solver_config
